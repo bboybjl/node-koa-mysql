@@ -1,13 +1,13 @@
 // src/server.ts
 import Koa from 'koa';
-import cors from '@koa/cors';
-import bodyParser from 'koa-bodyparser';
-import { createConnection } from 'typeorm';
+import cors from '@koa/cors';     //跨域使用
+import bodyParser from 'koa-bodyparser';    //处理post请求的ctx
+import { createConnection } from 'typeorm';  //typeorm来创建连接
 import 'reflect-metadata';
 import jwt from 'koa-jwt';
-import { JWT_SECRET } from './constants';
-import {protectedRouter, unprotectedRouter} from './routes';
-import { logger } from './logger';
+import { JWT_SECRET } from './constants';  //
+import {protectedRouter, unprotectedRouter} from './routes';   //koa路由
+import { logger } from './logger';    //试写中间件 记录查看请求的方式和返回状态
 createConnection()
   .then(() => {
     // 初始化 Koa 应用实例
