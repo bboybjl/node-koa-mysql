@@ -1,7 +1,6 @@
 // src/controllers/user.ts
 import { Context } from 'koa';
 import { getManager } from 'typeorm';
-import axios from 'axios'
 
 import { User } from '../entity/user';
 const fs = require('fs');
@@ -10,6 +9,7 @@ export default class UserController {
   
     ctx.status = 200;
     ctx.response.type = 'html';
+    //读取html模板
     ctx.response.body = fs.createReadStream('./src/index.html');
   }
  
